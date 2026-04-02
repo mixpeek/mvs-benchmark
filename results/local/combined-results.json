@@ -1,0 +1,329 @@
+{
+  "hardware": {
+    "machine": "Mac Studio",
+    "chip": "Apple M4 Ultra",
+    "cores": "28 (20P + 8E)",
+    "memory_gb": 96,
+    "os": "macOS Sequoia",
+    "qdrant": "Docker (local, default config)",
+    "mvs": "Mixpeek prod API (https://api.mixpeek.com)"
+  },
+  "timestamp": "2026-04-02T14:26:05",
+  "results": [
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 10000,
+      "dimensions": 768,
+      "concurrency": 1,
+      "num_queries": 1000,
+      "qps": 228.44,
+      "recall_at_k": 0.7271,
+      "latency": {
+        "p50_ms": 4.155041999183595,
+        "p95_ms": 5.560083081945777,
+        "p99_ms": 6.853334023617208,
+        "p999_ms": 11.902666999958456,
+        "mean_ms": 4.347332464531064,
+        "min_ms": 3.202041960321367,
+        "max_ms": 11.902666999958456
+      },
+      "total_time_s": 4.38,
+      "errors": 0
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 10000,
+      "dimensions": 768,
+      "concurrency": 10,
+      "num_queries": 1000,
+      "qps": 575.3,
+      "recall_at_k": 0.727,
+      "latency": {
+        "p50_ms": 16.485333093442023,
+        "p95_ms": 23.448957945220172,
+        "p99_ms": 41.53533303178847,
+        "p999_ms": 54.45345805492252,
+        "mean_ms": 17.26162408313549,
+        "min_ms": 7.7907920349389315,
+        "max_ms": 54.45345805492252
+      },
+      "total_time_s": 1.74,
+      "errors": 1
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 10000,
+      "dimensions": 768,
+      "concurrency": 32,
+      "num_queries": 1000,
+      "qps": 8.2,
+      "recall_at_k": 0.7272,
+      "latency": {
+        "p50_ms": 51.430625026114285,
+        "p95_ms": 87.95429207384586,
+        "p99_ms": 112.56687494460493,
+        "p999_ms": 143.17937509622425,
+        "mean_ms": 54.207977428432685,
+        "min_ms": 16.28600002732128,
+        "max_ms": 143.17937509622425
+      },
+      "total_time_s": 121.26,
+      "errors": 6
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 10000,
+      "dimensions": 768,
+      "concurrency": 64,
+      "num_queries": 1000,
+      "qps": 546.6,
+      "recall_at_k": 0.7271,
+      "latency": {
+        "p50_ms": 109.65729190502316,
+        "p95_ms": 186.90304190386087,
+        "p99_ms": 242.86670796573162,
+        "p999_ms": 307.00287502259016,
+        "mean_ms": 111.8076586216921,
+        "min_ms": 13.672249973751605,
+        "max_ms": 307.00287502259016
+      },
+      "total_time_s": 1.83,
+      "errors": 0
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 1,
+      "num_queries": 1000,
+      "qps": 188.01,
+      "recall_at_k": 0.1689,
+      "latency": {
+        "p50_ms": 5.148250027559698,
+        "p95_ms": 6.4278749050572515,
+        "p99_ms": 7.069915998727083,
+        "p999_ms": 13.067833031527698,
+        "mean_ms": 5.285976857994683,
+        "min_ms": 3.900166950188577,
+        "max_ms": 13.067833031527698
+      },
+      "total_time_s": 5.32,
+      "errors": 0
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 10,
+      "num_queries": 1000,
+      "qps": 576.67,
+      "recall_at_k": 0.1689,
+      "latency": {
+        "p50_ms": 16.56000001821667,
+        "p95_ms": 23.99354102090001,
+        "p99_ms": 37.8912080777809,
+        "p999_ms": 56.011041975580156,
+        "mean_ms": 17.225261595332995,
+        "min_ms": 7.647000020369887,
+        "max_ms": 56.011041975580156
+      },
+      "total_time_s": 1.73,
+      "errors": 0
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 32,
+      "num_queries": 1000,
+      "qps": 591.54,
+      "recall_at_k": 0.1689,
+      "latency": {
+        "p50_ms": 50.3044999204576,
+        "p95_ms": 82.62983395252377,
+        "p99_ms": 99.52754201367497,
+        "p999_ms": 139.8327499628067,
+        "mean_ms": 52.818102074109525,
+        "min_ms": 13.4907920146361,
+        "max_ms": 139.8327499628067
+      },
+      "total_time_s": 1.69,
+      "errors": 2
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 64,
+      "num_queries": 1000,
+      "qps": 545.24,
+      "recall_at_k": 0.1685,
+      "latency": {
+        "p50_ms": 108.39920910075307,
+        "p95_ms": 190.79466699622571,
+        "p99_ms": 263.96324997767806,
+        "p999_ms": 292.53229196183383,
+        "mean_ms": 112.54922566221065,
+        "min_ms": 23.8602499011904,
+        "max_ms": 292.53229196183383
+      },
+      "total_time_s": 1.83,
+      "errors": 2
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 100000,
+      "dimensions": 768,
+      "concurrency": 1,
+      "num_queries": 1000,
+      "qps": 183.47,
+      "recall_at_k": 0.0935,
+      "latency": {
+        "p50_ms": 5.31062507070601,
+        "p95_ms": 6.614667014218867,
+        "p99_ms": 7.13304104283452,
+        "p999_ms": 11.61404198501259,
+        "mean_ms": 5.418052788474597,
+        "min_ms": 4.203916992992163,
+        "max_ms": 11.61404198501259
+      },
+      "total_time_s": 5.45,
+      "errors": 0
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 100000,
+      "dimensions": 768,
+      "concurrency": 10,
+      "num_queries": 1000,
+      "qps": 565.35,
+      "recall_at_k": 0.0934,
+      "latency": {
+        "p50_ms": 17.11116696242243,
+        "p95_ms": 24.15299997664988,
+        "p99_ms": 28.452832950279117,
+        "p999_ms": 32.224667025730014,
+        "mean_ms": 17.551371942503838,
+        "min_ms": 7.227209047414362,
+        "max_ms": 32.224667025730014
+      },
+      "total_time_s": 1.77,
+      "errors": 2
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 100000,
+      "dimensions": 768,
+      "concurrency": 32,
+      "num_queries": 1000,
+      "qps": 8.26,
+      "recall_at_k": 0.0936,
+      "latency": {
+        "p50_ms": 45.81462498754263,
+        "p95_ms": 76.3135829474777,
+        "p99_ms": 99.86987500451505,
+        "p999_ms": 144.80300003197044,
+        "mean_ms": 48.86940379492535,
+        "min_ms": 9.656624984927475,
+        "max_ms": 144.80300003197044
+      },
+      "total_time_s": 120.68,
+      "errors": 3
+    },
+    {
+      "engine": "qdrant",
+      "scenario": "steady-state",
+      "num_vectors": 100000,
+      "dimensions": 768,
+      "concurrency": 64,
+      "num_queries": 1000,
+      "qps": 547.74,
+      "recall_at_k": 0.0937,
+      "latency": {
+        "p50_ms": 108.52025006897748,
+        "p95_ms": 185.5092499172315,
+        "p99_ms": 251.92412501201034,
+        "p999_ms": 381.386624998413,
+        "mean_ms": 111.84361113044135,
+        "min_ms": 24.531791917979717,
+        "max_ms": 381.386624998413
+      },
+      "total_time_s": 1.82,
+      "errors": 4
+    },
+    {
+      "engine": "mvs",
+      "scenario": "steady-state",
+      "num_vectors": 0,
+      "dimensions": 768,
+      "concurrency": 1,
+      "num_queries": 50,
+      "qps": 1.28,
+      "recall_at_k": 0.0,
+      "latency": {
+        "p50_ms": 600.06,
+        "p95_ms": 1665.55,
+        "p99_ms": 6236.49,
+        "p999_ms": 6236.49,
+        "mean_ms": 782.32,
+        "min_ms": 285.02,
+        "max_ms": 6236.49
+      },
+      "total_time_s": 39.12,
+      "errors": 0
+    },
+    {
+      "engine": "mvs",
+      "scenario": "steady-state",
+      "num_vectors": 0,
+      "dimensions": 768,
+      "concurrency": 5,
+      "num_queries": 50,
+      "qps": 7.66,
+      "recall_at_k": 0.0,
+      "latency": {
+        "p50_ms": 601.4,
+        "p95_ms": 997.69,
+        "p99_ms": 1013.7,
+        "p999_ms": 1013.7,
+        "mean_ms": 626.77,
+        "min_ms": 392.73,
+        "max_ms": 1013.7
+      },
+      "total_time_s": 6.52,
+      "errors": 0
+    },
+    {
+      "engine": "mvs",
+      "scenario": "steady-state",
+      "num_vectors": 0,
+      "dimensions": 768,
+      "concurrency": 10,
+      "num_queries": 50,
+      "qps": 7.63,
+      "recall_at_k": 0.0,
+      "latency": {
+        "p50_ms": 943.37,
+        "p95_ms": 1919.05,
+        "p99_ms": 4779.74,
+        "p999_ms": 4779.74,
+        "mean_ms": 1049.23,
+        "min_ms": 497.76,
+        "max_ms": 4779.74
+      },
+      "total_time_s": 6.56,
+      "errors": 0
+    }
+  ]
+}

@@ -6,6 +6,6 @@ venv/
 *.egg-info/
 dist/
 build/
-results/
+# results/  # kept in repo for reproducibility
 docs/_site/
 .DS_Store

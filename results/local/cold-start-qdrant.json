@@ -1,0 +1,18 @@
+{
+  "engine": "qdrant",
+  "scenario": "cold-start",
+  "num_vectors": 50000,
+  "dimensions": 768,
+  "baseline_p50_ms": 4.57,
+  "time_to_first_query_s": 6.97,
+  "time_to_stable_s": 12.81,
+  "hardware": {
+    "machine": "Mac Studio",
+    "chip": "Apple M4 Ultra",
+    "cores": "28 (20P + 8E)",
+    "memory_gb": 96,
+    "os": "macOS Sequoia",
+    "qdrant": "Docker (local, default config)",
+    "mvs": "Mixpeek prod API (https://api.mixpeek.com)"
+  }
+}
