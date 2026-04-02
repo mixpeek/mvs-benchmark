@@ -1,0 +1,75 @@
+{
+  "engine": "chroma",
+  "scenario": "steady-state",
+  "config": {
+    "num_vectors": 50000,
+    "dimensions": 768,
+    "num_queries": 1000,
+    "top_k": 10
+  },
+  "results": [
+    {
+      "engine": "chroma",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 1,
+      "num_queries": 1000,
+      "qps": 176.4,
+      "recall_at_k": 0.1408,
+      "latency": {
+        "p50_ms": 5.616000038571656,
+        "p95_ms": 6.368958973325789,
+        "p99_ms": 6.717124953866005,
+        "p999_ms": 9.822417050600052,
+        "mean_ms": 5.649613005574793,
+        "min_ms": 4.669625079259276,
+        "max_ms": 9.822417050600052
+      },
+      "total_time_s": 5.67,
+      "errors": 0
+    },
+    {
+      "engine": "chroma",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 10,
+      "num_queries": 1000,
+      "qps": 251.96,
+      "recall_at_k": 0.1408,
+      "latency": {
+        "p50_ms": 39.51416700147092,
+        "p95_ms": 42.25837497506291,
+        "p99_ms": 44.18600001372397,
+        "p999_ms": 51.74650007393211,
+        "mean_ms": 39.47091157292016,
+        "min_ms": 15.928665990941226,
+        "max_ms": 51.74650007393211
+      },
+      "total_time_s": 3.97,
+      "errors": 0
+    },
+    {
+      "engine": "chroma",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 32,
+      "num_queries": 1000,
+      "qps": 256.67,
+      "recall_at_k": 0.1408,
+      "latency": {
+        "p50_ms": 124.23125002533197,
+        "p95_ms": 136.3549999659881,
+        "p99_ms": 211.34495793376118,
+        "p999_ms": 239.16020803153515,
+        "mean_ms": 122.56924863939639,
+        "min_ms": 41.75291594583541,
+        "max_ms": 239.16020803153515
+      },
+      "total_time_s": 3.9,
+      "errors": 0
+    }
+  ]
+}

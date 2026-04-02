@@ -33,6 +33,18 @@ def get_adapters() -> list:
     """Import and instantiate all available adapters."""
     adapters = []
 
+    # MVS (direct vector search via Qdrant hot serving layer)
+    try:
+        from benchmark.engines.mvs.direct_adapter import MVSDirectAdapter
+        a = MVSDirectAdapter(url="http://localhost:6333")
+        if a.health_check():
+            adapters.append(a)
+            logger.info("MVS (direct): available")
+        else:
+            logger.warning("MVS (direct): not reachable")
+    except Exception as e:
+        logger.warning(f"MVS (direct): {e}")
+
     # Qdrant
     try:
         from benchmark.engines.qdrant.adapter import QdrantAdapter

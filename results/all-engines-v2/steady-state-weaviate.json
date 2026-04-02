@@ -1,0 +1,75 @@
+{
+  "engine": "weaviate",
+  "scenario": "steady-state",
+  "config": {
+    "num_vectors": 50000,
+    "dimensions": 768,
+    "num_queries": 1000,
+    "top_k": 10
+  },
+  "results": [
+    {
+      "engine": "weaviate",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 1,
+      "num_queries": 1000,
+      "qps": 290.56,
+      "recall_at_k": 0.1763,
+      "latency": {
+        "p50_ms": 3.3478749683126807,
+        "p95_ms": 3.9229580434039235,
+        "p99_ms": 4.195209010504186,
+        "p999_ms": 4.577166982926428,
+        "mean_ms": 3.3655578054022044,
+        "min_ms": 2.5449589593335986,
+        "max_ms": 4.577166982926428
+      },
+      "total_time_s": 3.44,
+      "errors": 0
+    },
+    {
+      "engine": "weaviate",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 10,
+      "num_queries": 1000,
+      "qps": 1785.29,
+      "recall_at_k": 0.1763,
+      "latency": {
+        "p50_ms": 5.313416942954063,
+        "p95_ms": 6.8586659617722034,
+        "p99_ms": 9.4245420768857,
+        "p999_ms": 10.638499981723726,
+        "mean_ms": 5.434729595086537,
+        "min_ms": 3.4243339905515313,
+        "max_ms": 10.638499981723726
+      },
+      "total_time_s": 0.56,
+      "errors": 0
+    },
+    {
+      "engine": "weaviate",
+      "scenario": "steady-state",
+      "num_vectors": 50000,
+      "dimensions": 768,
+      "concurrency": 32,
+      "num_queries": 1000,
+      "qps": 2245.15,
+      "recall_at_k": 0.1763,
+      "latency": {
+        "p50_ms": 12.472125003114343,
+        "p95_ms": 19.637125078588724,
+        "p99_ms": 22.881041979417205,
+        "p999_ms": 37.96654206234962,
+        "mean_ms": 12.818601575796492,
+        "min_ms": 4.600540967658162,
+        "max_ms": 37.96654206234962
+      },
+      "total_time_s": 0.45,
+      "errors": 0
+    }
+  ]
+}
