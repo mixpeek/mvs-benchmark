@@ -1,0 +1,35 @@
+# Milvus — Benchmark Configuration
+#
+# Architecture: IVF/HNSW, GPU support, distributed mode
+# Docker image: milvusdb/milvus:latest (pinned per benchmark run)
+
+engine:
+  name: milvus
+  version: latest
+  docker_image: milvusdb/milvus:latest
+
+# Index configuration
+index:
+  type: HNSW                     # HNSW | IVF_FLAT | IVF_PQ | GPU_IVF_PQ
+  hnsw_m: 16
+  hnsw_ef_construct: 200
+  hnsw_ef: 128
+
+# Storage
+storage:
+  data_path: /data/milvus
+
+# Search
+search:
+  default_top_k: 10
+  consistency_level: Strong
+
+# Resource limits
+resources:
+  memory_limit: null
+  cpu_limit: null
+
+# Server
+server:
+  host: 0.0.0.0
+  port: 19530

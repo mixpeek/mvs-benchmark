@@ -1,0 +1,27 @@
+# turbopuffer — Benchmark Configuration
+#
+# Architecture: S3-native, serverless
+# Note: turbopuffer is a managed service; this config describes the client settings
+# and any tunable parameters exposed via the API.
+
+engine:
+  name: turbopuffer
+  version: latest
+  type: managed                  # no Docker image — API-based
+
+# Client configuration
+client:
+  api_key: ${TURBOPUFFER_API_KEY}
+  base_url: https://api.turbopuffer.com
+
+# Index configuration
+index:
+  # turbopuffer manages indexing internally
+  distance_metric: cosine_distance
+
+# Search
+search:
+  default_top_k: 10
+
+# Note: resource limits are managed by turbopuffer's infrastructure
+# Cost is pay-per-query — relevant for TCO scenario

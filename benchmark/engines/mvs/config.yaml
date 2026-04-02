@@ -1,0 +1,48 @@
+# MVS (Mixpeek Vector Store) — Benchmark Configuration
+#
+# Architecture: LIRE partitions + PQ on SSD, tantivy BM25, BYO object storage
+# Docker image: mixpeek/mvs:latest (pinned per benchmark run)
+
+engine:
+  name: mvs
+  version: latest
+  docker_image: mixpeek/mvs:latest
+
+# Index configuration
+index:
+  # LIRE partition settings
+  partition_size: 50000          # vectors per partition
+  num_partitions: auto           # auto-calculated from dataset size
+  pq_dimensions: 64              # PQ sub-quantizer count
+  pq_bits: 8                     # bits per sub-quantizer
+  nprobe: 32                     # partitions to scan at query time
+
+# Storage
+storage:
+  backend: s3                    # s3 | gcs | local
+  bucket: mvs-benchmark-data
+  cache_size_gb: 16              # local SSD cache for hot partitions
+
+# Search
+search:
+  default_top_k: 10
+  oversampling_factor: 3         # fetch 3x candidates before re-ranking
+
+# BM25 (tantivy)
+bm25:
+  enabled: true
+  tokenizer: default
+  k1: 1.2
+  b: 0.75
+
+# Resource limits
+resources:
+  memory_limit: null             # set per scenario (e.g., 32g for memory-constrained)
+  cpu_limit: null                # uses all available CPUs by default
+
+# Server
+server:
+  host: 0.0.0.0
+  port: 8080
+  grpc_port: 50051
+  workers: 8

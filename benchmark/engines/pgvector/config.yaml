@@ -1,0 +1,43 @@
+# pgvector + pgvectorscale — Benchmark Configuration
+#
+# Architecture: Postgres-native, IVFFlat/HNSW indexes
+# Docker image: timescale/timescaledb-ha:pg16 (includes pgvector + pgvectorscale)
+
+engine:
+  name: pgvector
+  version: latest
+  docker_image: timescale/timescaledb-ha:pg16-latest
+
+# Index configuration
+index:
+  type: hnsw                     # hnsw | ivfflat
+  hnsw_m: 16
+  hnsw_ef_construction: 200
+  ivfflat_lists: 1000            # only used if type=ivfflat
+  # pgvectorscale StreamingDiskANN
+  diskann:
+    enabled: true                # use StreamingDiskANN when available
+    search_list_size: 100
+
+# Postgres
+postgres:
+  shared_buffers: 32GB
+  effective_cache_size: 64GB
+  maintenance_work_mem: 8GB
+  max_parallel_workers: 16
+
+# Search
+search:
+  default_top_k: 10
+  probes: 32                     # ivfflat probes
+  hnsw_ef_search: 128
+
+# Resource limits
+resources:
+  memory_limit: null
+  cpu_limit: null
+
+# Server
+server:
+  host: 0.0.0.0
+  port: 5432

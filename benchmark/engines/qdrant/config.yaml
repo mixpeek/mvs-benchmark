@@ -1,0 +1,40 @@
+# Qdrant — Benchmark Configuration
+#
+# Architecture: HNSW graph index, optional on-disk storage, payload indexes
+# Docker image: qdrant/qdrant:latest (pinned per benchmark run)
+
+engine:
+  name: qdrant
+  version: latest
+  docker_image: qdrant/qdrant:latest
+
+# Index configuration
+index:
+  hnsw_m: 16                     # HNSW connections per node
+  hnsw_ef_construct: 200         # construction beam width
+  hnsw_ef: 128                   # search beam width
+  on_disk: false                 # set true for memory-constrained scenario
+  quantization:
+    enabled: false               # set true for memory-constrained scenario
+    type: scalar                 # scalar | product
+    always_ram: true             # keep quantized vectors in RAM
+
+# Storage
+storage:
+  storage_path: /data/qdrant
+  on_disk_payload: false
+
+# Search
+search:
+  default_top_k: 10
+
+# Resource limits
+resources:
+  memory_limit: null
+  cpu_limit: null
+
+# Server
+server:
+  host: 0.0.0.0
+  http_port: 6333
+  grpc_port: 6334
