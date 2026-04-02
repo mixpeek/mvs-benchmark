@@ -25,6 +25,15 @@ class QdrantAdapter(EngineAdapter):
     def name(self) -> str:
         return "qdrant"
 
+    def health_check(self) -> bool:
+        try:
+            c = QdrantClient(url=self._url, api_key=self._api_key, timeout=5)
+            c.get_collections()
+            c.close()
+            return True
+        except Exception:
+            return False
+
     def setup(self, collection_name: str, dimensions: int, **kwargs) -> None:
         self._collection_name = collection_name
         self._client = QdrantClient(url=self._url, api_key=self._api_key, timeout=120)

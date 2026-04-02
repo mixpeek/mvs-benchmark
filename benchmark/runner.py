@@ -61,7 +61,7 @@ def generate_dataset(num_vectors: int, dimensions: int, seed: int = 42) -> tuple
     the last 10% of the dataset (held out).
     """
     rng = np.random.RandomState(seed)
-    num_queries = max(100, num_vectors // 10)
+    num_queries = min(1000, max(100, num_vectors // 10))
     total = num_vectors + num_queries
 
     vectors = rng.randn(total, dimensions).astype(np.float32)
