@@ -78,6 +78,8 @@ Cold latency includes partition loading from object storage. Warm latency reflec
 
 ## Cost Comparison
 
+MVS pricing is **pure usage-based** — no per-vector caps, no namespace limits. Support tiers (Starter $0/mo, Growth $50/mo minimum, Enterprise custom) gate support level, not features. All search capabilities are available on every tier.
+
 Monthly cost for hosted vector search at 768 dimensions, ~100 QPS steady state.
 
 | Vectors | MVS | Qdrant Cloud | Pinecone | Weaviate Cloud |
@@ -90,6 +92,8 @@ Monthly cost for hosted vector search at 768 dimensions, ~100 QPS steady state.
 | 10B | $14,999/mo | Contact sales | Contact sales | Contact sales |
 
 Competitor prices from public pricing calculators (768d, ~100 QPS). Qdrant = dedicated cluster; Pinecone = serverless read units; Weaviate = per-dimension pricing. MVS includes scale-to-zero — idle namespaces cost only storage.
+
+First 1M vectors are free on the Starter tier. Growth tier minimum ($50/mo) is applied toward usage — if your usage exceeds $50, you just pay usage. Enterprise gets volume discounts.
 
 ## Systems tested
 
