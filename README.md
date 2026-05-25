@@ -2,6 +2,8 @@
 
 Open-source benchmark comparing vector databases on the metrics that matter in production: **throughput, latency, recall, and cost**.
 
+Full documentation: https://mixpeek.com/docs/vector-store/overview
+
 > **Transparency note:** This benchmark is maintained by [Mixpeek](https://mixpeek.com), the creators of [MVS](https://mixpeek.com/mvs). Every result is reproducible — clone the repo and run it yourself.
 
 ## Results
@@ -59,6 +61,35 @@ Hardware: Mac Studio — Apple M4 Ultra (28-core), 96 GB RAM, macOS Sequoia
 2. **High concurrency separates architectures.** HNSW-based engines (Weaviate, Milvus) scale linearly. MVS's partition-based approach (LIRE) shows degradation at 32 threads on a 50K dataset — this is expected to improve at larger scales where partitioning pays off.
 3. **Recall is capped by dataset size.** 50K vectors with 768 dimensions produces low absolute recall across all engines. The relative ordering matters more than the absolute values.
 4. **MVS trades raw QPS for cost.** MVS stores vectors on your existing object storage (S3, GCS, B2) instead of RAM — meaning 10–50x lower infrastructure cost at billion-scale, with competitive latency for real-world workloads.
+
+### Full-Text Search (BM25)
+
+MVS includes native full-text search powered by Tantivy BM25, running alongside vector search with no external dependencies.
+
+**Performance at steady state (50K documents):**
+
+| Percentile | Warm (ms) | Cold (ms) |
+|------------|----------:|----------:|
+| p50 | 12 | 55 |
+| p90 | 22 | 85 |
+| p99 | 48 | 130 |
+
+Cold latency includes partition loading from object storage. Warm latency reflects subsequent queries against cached partitions.
+
+## Cost Comparison
+
+Monthly cost for hosted vector search at 768 dimensions, ~100 QPS steady state.
+
+| Vectors | MVS | Qdrant Cloud | Pinecone | Weaviate Cloud |
+|---------|-----|-------------|----------|----------------|
+| 1M | Free | $120/mo | $500/mo | $73/mo |
+| 10M | $49/mo | $460/mo | $2,700/mo | $730/mo |
+| 100M | $299/mo | $1,255/mo | $25,000/mo | $7,300/mo |
+| 1B | $1,999/mo | $12,500/mo | $26,000/mo | $73,000/mo |
+| 5B | $7,999/mo | Contact sales | Contact sales | Contact sales |
+| 10B | $14,999/mo | Contact sales | Contact sales | Contact sales |
+
+Competitor prices from public pricing calculators (768d, ~100 QPS). Qdrant = dedicated cluster; Pinecone = serverless read units; Weaviate = per-dimension pricing. MVS includes scale-to-zero — idle namespaces cost only storage.
 
 ## Systems tested
 
