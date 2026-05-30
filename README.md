@@ -151,6 +151,9 @@ python benchmark/scripts/run_all.py --scale 1b
 
 # Generate results site
 python benchmark/site/generate.py --results results/ --output docs/
+
+# Validate result JSON before publishing or comparing runs
+python benchmark/scripts/validate_results.py results/
 ```
 
 ## Reproducing results
